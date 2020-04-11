@@ -1,4 +1,4 @@
-export default class WorkoutModel {
+export default class CategoryModel {
   constructor(id, category, sum) {
     this.id = id;
     this.category = category;

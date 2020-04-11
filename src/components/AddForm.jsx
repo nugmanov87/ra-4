@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import WorkoutModel from "../model/WorkoutModel";
+import CategoryModel from "../model/CategoryModel";
 import shortid from "shortid";
 
-const AddForm = ({ currentWorkout, handleAdd }) => {
+const AddForm = ({ currentCategory, handleAdd, handleAddDetails }) => {
   const [form, setForm] = useState({ category: "", sum: "" });
 
   useEffect(() => {
-    if (currentWorkout) {
-      setForm({ category: currentWorkout.category, sum: currentWorkout.sum });
+    if (currentCategory) {
+      setForm({ category: currentCategory.category, sum: currentCategory.sum });
     }
-  }, [currentWorkout]);
+  }, [currentCategory]);
 
   const handleChange = (evt) => {
     const { name, value } = evt.target;
@@ -19,12 +19,14 @@ const AddForm = ({ currentWorkout, handleAdd }) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    const workout = new WorkoutModel(
+    const categorys = new CategoryModel(
       shortid.generate(),
       form.category,
       form.sum
     );
-    handleAdd(workout);
+    handleAdd(categorys);
+    handleAddDetails(categorys);
+
     setForm({ category: "", sum: "" });
   };
 
@@ -65,7 +67,7 @@ const AddForm = ({ currentWorkout, handleAdd }) => {
 };
 
 AddForm.propTypes = {
-  setWorkouts: PropTypes.func.isRequired,
+  setCategorys: PropTypes.func.isRequired,
 };
 
 export default AddForm;
