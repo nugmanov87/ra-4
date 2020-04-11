@@ -6,13 +6,13 @@ import DetailList from "./components/DetailList";
 
 function App() {
   const [allCategorys, setCategorys] = useState([]);
-  const [currentWorkout, setCurrentWorkout] = useState({
+  const [currentWorkout] = useState({
     category: "",
     sum: "",
   });
 
   const [details, setDetails] = useState([]);
-  const [currentDetail, setCurrentDetail] = useState({
+  const [currentDetail] = useState({
     category: "",
     sum: "",
   });
