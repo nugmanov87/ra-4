@@ -24,7 +24,7 @@ const AddForm = ({ currentCategory, handleAdd, handleAddDetails }) => {
       form.category,
       form.sum
     );
-    handleAdd(categorys);
+    
     handleAddDetails(categorys);
 
     setForm({ category: "", sum: "" });
